@@ -1,4 +1,4 @@
-import {useGetUsersQuery} from "../services/api.js";
+import {useGetUsersQuery} from "../services/apiSlice.js";
 
 export default function UsersList() {
   const {data: users, error, isLoading} = useGetUsersQuery();

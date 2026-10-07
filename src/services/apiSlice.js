@@ -1,12 +1,15 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 
-export const api = createApi({
+export const apiSlice = createApi({
   reducerPath: 'api', //уникальное имя апи
   baseQuery: fetchBaseQuery({baseUrl: 'https://jsonplaceholder.typicode.com/'}),
   endpoints: (builder) => ({
     getUsers: builder.query({
       // query: () => 'users?_limit=5', // эндпоинт для получения пользователей
       query: () => 'users?_limit=5', // эндпоинт для получения пользователей
+    }),
+    getUserById: builder.query({
+      query: (id) => `users/${id}`,
     }),
     addUser: builder.mutation({
       query: (newUser) => ({
@@ -19,4 +22,4 @@ export const api = createApi({
 })
 
 // экспорт хуков для использования в компонентах
-export const {useGetUsersQuery, useAddUserMutation} = api;
+export const {useGetUsersQuery, useGetUserByIdQuery, useAddUserMutation} = apiSlice;
