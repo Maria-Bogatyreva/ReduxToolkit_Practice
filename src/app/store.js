@@ -7,7 +7,7 @@ const store = configureStore({
   reducer: {
     counter: counterReducer,
     tasks: tasksReducer,
-    [apiSlice.reducerPath]: apiSlice.reducer // вот подключение API SLICE к редюсеру!!
+    [apiSlice.reducerPath]: apiSlice.reducer // вот подключение API SLICE к store!!
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware)
